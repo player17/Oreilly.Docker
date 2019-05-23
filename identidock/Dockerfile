@@ -1,6 +1,15 @@
-FROM python:3.4
-RUN pip install Flask==0.10.1
+FROM python:3.7
+
+RUN groupadd -r uwsgi && useradd -r -g uwsgi uwsgi
+RUN pip install Flask==0.10.1 uWSGI==2.0.18
 WORKDIR /app
 COPY app /app
-CMD ["python", "identidock.py"]
-RUN chmod 644 identidock.py
+
+EXPOSE 9090 9191
+USER uwsgi
+
+CMD ["uwsgi", "--http", "0.0.0.0:9090", "--wsgi-file", "/app/identidock.py", \
+          "--callable", "app", "--stats", "0.0.0.0:9191"]
+USER root
+RUN chmod 755 identidock.py
+USER uwsgi
