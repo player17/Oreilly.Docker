@@ -1,1 +1,2 @@
 docker run -it -v %cd%/test-file.txt:/test-file.txt debian bash
+1
