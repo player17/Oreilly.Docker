@@ -1,3 +1,5 @@
+#!/usr/local/bin/python3
+
 from flask import Flask, Response, request
 import requests
 import hashlib
