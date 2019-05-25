@@ -45,7 +45,7 @@ docker run --name identidock3 -e "ENV=DEV" -p 5000:5000 identidock3
 -- Неработает
 docker build -t identidock3 .
 docker run --name identidock3 -e "ENV=DEV" -p 5000:5000 -v %cd%/app:/app identidock3
-docker inspect identidock3 ***
+docker inspect identidock3 **
 
 // Хак косяков книги
 COPY app /app
