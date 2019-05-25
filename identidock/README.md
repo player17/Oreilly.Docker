@@ -60,5 +60,8 @@ CMD ["./cdm.sh"]
 docker build -t identidock3 .
 docker run --name identidock3 -e "ENV=DEV" -p 5000:5000 identidock3
 
+// Page 116
+// Create Automated Build Docker hub
+
 
 
