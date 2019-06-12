@@ -3,11 +3,11 @@ Docker первое знакомство
 
 Чистим Doker локальный
 ----------------------
-* docker images // Список образов
-* docker ps -a // Список всех контейнеров
-* docker rm $(docker ps -aq)  // Удалить работающие контейнеры
-* docker rm -v $(docker ps -aq -f status=exited)  // Удалить остановленые контейнеры
-* docker rmi -f $(docker images -q)  // Удалить все образы // -f силовое удаление
+* `docker images` // Список образов
+* `docker ps -a` // Список всех контейнеров
+* `docker rm $(docker ps -aq)` // Удалить работающие контейнеры
+* `docker rm -v $(docker ps -aq -f status=exited)`  // Удалить остановленые контейнеры
+* `docker rmi -f $(docker images -q)`  // Удалить все образы // -f силовое удаление
 
 Git Hub
 -------
@@ -22,6 +22,17 @@ Docker Hub
 Docker local
 ------------
 * Переходи в директорию проекта // Папку расшариваем
-* docker build -t identidock .  // Создаем образ identidock из docker-compose.yml
-* docker run --name identidock -e "ENV=DEV" -p 5000:5000 identidock  // Запоускаем образ под разработчиком на 5000 порту (127.0.0.1:5000)
+* `docker images` // Список созданных образов
+* `docker stop $(docker ps -q)`  // Остановить работающие контейнеры
+* `docker rm $(docker ps -aq)` // Удалить контейнеры
+* `docker rmi -f $(docker images -aq)` // Удалить образы
+* `docker-compose build` // Перестроить + Скачать образы из docker-compose.yml
+* `docker-compose up -d`  // Запустить в фоновом режиме из docker-compose.yml // Ctrl + С выход из консоли
+* `http://127.0.0.1:5000`  // Приложение доступно для работы
+
+Разное
+------
+* `docker build -t identidock .`  // Создаем образ identidock из dockerfile
+* `docker run --name identidock -e "ENV=DEV" -p 5000:5000 identidock`  // Запоускаем образ под разработчиком на 5000 порту (http://127.0.0.1:5000) из dockerfile
+
 
