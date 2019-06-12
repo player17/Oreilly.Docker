@@ -36,4 +36,14 @@ Docker local
 * `docker build -t identidock .`  // Создаем образ identidock из dockerfile
 * `docker run --name identidock -e "ENV=DEV" -p 5000:5000 identidock`  // Запоускаем образ под разработчиком на 5000 порту (http://127.0.0.1:5000) из dockerfile
 
+Стр.130 Тестирование CI
+=======================
+
+Запуск тестов
+-------------
+* `docker stop $(docker ps -q)`  // Остановить работающие контейнеры
+* `docker rm $(docker ps -aq)` // Удалить контейнеры
+* `docker build -t identidock .`
+* `docker run identidock python tests.py`  // Запуск контейнера + скрипт теста
+* `docker run -e ENV=UNIT identidock` // Запуск контейнера под тестами
 
