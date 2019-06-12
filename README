@@ -1,0 +1,10 @@
+// Чистим Doker локальный
+docker images // Список образов
+docker ps -a // Список всех контейнеров
+docker rm $(docker ps -aq)  // Удалить работающие контейнеры
+docker rm -v $(docker ps -aq -f status=exited)  // Удалить остановленые контейнеры
+docker rmi -f $(docker images -q)  // Удалить все образы // -f силовое удаление
+
+// Git Hub
+
+
